@@ -40,3 +40,5 @@ steps:
     arguments: '--configuration $(buildconfiguration) --no-restore'
     modifyOutputPath: false
   displayName: 'publish customer API'
+# know i want to publish only when my build is scusseded then we need to give condition
+  condition: and (succeeded(), eq(variables[Build.sourceBranch], 'ref/heads/master'))
